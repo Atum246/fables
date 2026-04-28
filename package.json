@@ -1,0 +1,62 @@
+{
+  "name": "fables",
+  "version": "0.1.0",
+  "description": "📖 Build Flutter apps to APK, AAB & iOS — no Android Studio needed",
+  "main": "src/index.js",
+  "bin": {
+    "fables": "./bin/fables.js"
+  },
+  "scripts": {
+    "start": "node bin/fables.js",
+    "test": "jest --coverage --testPathPattern=tests/",
+    "lint": "eslint src/",
+    "dev": "node bin/fables.js"
+  },
+  "keywords": [
+    "flutter",
+    "apk",
+    "aab",
+    "ios",
+    "build",
+    "cli",
+    "android",
+    "mobile"
+  ],
+  "author": "John & Neo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fables-cli/fables"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "ora": "^5.4.1",
+    "boxen": "^5.1.2",
+    "inquirer": "^8.2.6",
+    "cli-progress": "^3.12.0",
+    "figlet": "^1.7.0",
+    "gradient-string": "^2.0.2",
+    "cli-table3": "^0.6.3",
+    "conf": "^10.2.0",
+    "execa": "^5.1.1",
+    "fs-extra": "^11.2.0",
+    "yaml": "^2.3.4",
+    "semver": "^7.5.4",
+    "open": "^8.4.2",
+    "axios": "^1.6.2",
+    "tar": "^6.2.0",
+    "listr2": "^6.6.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.54.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "jest": {
+    "testMatch": ["<rootDir>/tests/**/*.test.js"],
+    "testPathIgnorePatterns": ["/node_modules/", "/src/"]
+  }
+}
