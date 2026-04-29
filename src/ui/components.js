@@ -1,5 +1,5 @@
 /**
- * 🎭 Fables UI Kit — Beautiful terminal components
+ * 🎭 Fables UI Kit — HACKER GREEN THEME 💚🖥️
  */
 
 const chalk = require('chalk');
@@ -9,27 +9,27 @@ const Table = require('cli-table3');
 const cliProgress = require('cli-progress');
 
 // ═══════════════════════════════════════
-//  SPINNERS 🌀
+//  SPINNERS 📖 (book pages flip)
 // ═══════════════════════════════════════
 
 function spinner(text, opts = {}) {
   return ora({
-    text: chalk.white(text),
+    text: chalk.green(text),
     spinner: {
       interval: 80,
-      frames: ['📖', '📗', '📘', '📙', '📕'],
+      frames: ['▸', '▹', '▸', '▹', '▸', '▹'],
     },
-    color: 'yellow',
+    color: 'green',
     ...opts,
   });
 }
 
 function successSpinner(sp, text) {
-  sp.succeed(chalk.green('✅ ') + chalk.white(text));
+  sp.succeed(chalk.hex('#00FF41')('✓ ') + chalk.white(text));
 }
 
 function failSpinner(sp, text) {
-  sp.fail(chalk.red('❌ ') + chalk.white(text));
+  sp.fail(chalk.red('✗ ') + chalk.white(text));
 }
 
 // ═══════════════════════════════════════
@@ -37,41 +37,41 @@ function failSpinner(sp, text) {
 // ═══════════════════════════════════════
 
 function infoBox(title, content, opts = {}) {
-  const boxContent = chalk.white.bold(title) + '\n\n' + content;
+  const boxContent = chalk.greenBright.bold(title) + '\n\n' + content;
   return boxen(boxContent, {
     padding: 1,
     margin: 1,
-    borderStyle: 'round',
-    borderColor: 'cyan',
-    title: '📖 Fables',
+    borderStyle: 'single',
+    borderColor: 'green',
+    title: '▸ Fables',
     titleAlignment: 'center',
     ...opts,
   });
 }
 
 function successBox(content) {
-  return boxen(chalk.green.bold('🎉 Success!\n\n') + chalk.white(content), {
+  return boxen(chalk.hex('#00FF41').bold('✓ SUCCESS\n\n') + chalk.white(content), {
     padding: 1,
     margin: 1,
-    borderStyle: 'round',
+    borderStyle: 'single',
     borderColor: 'green',
   });
 }
 
 function errorBox(content) {
-  return boxen(chalk.red.bold('💥 Oops!\n\n') + chalk.white(content), {
+  return boxen(chalk.red.bold('✗ ERROR\n\n') + chalk.white(content), {
     padding: 1,
     margin: 1,
-    borderStyle: 'round',
+    borderStyle: 'single',
     borderColor: 'red',
   });
 }
 
 function warnBox(content) {
-  return boxen(chalk.yellow.bold('⚠️  Heads Up!\n\n') + chalk.white(content), {
+  return boxen(chalk.yellow.bold('⚠ WARNING\n\n') + chalk.white(content), {
     padding: 1,
     margin: 1,
-    borderStyle: 'round',
+    borderStyle: 'single',
     borderColor: 'yellow',
   });
 }
@@ -82,22 +82,22 @@ function warnBox(content) {
 
 function createTable(headers, opts = {}) {
   return new Table({
-    head: headers.map((h) => chalk.cyan.bold(h)),
+    head: headers.map((h) => chalk.hex('#00FF41').bold(h)),
     style: {
       head: [],
-      border: ['gray'],
+      border: ['green'],
       'padding-left': 1,
       'padding-right': 1,
     },
     chars: {
       top: '─',
       'top-mid': '┬',
-      'top-left': '╭',
-      'top-right': '╮',
+      'top-left': '┌',
+      'top-right': '┐',
       bottom: '─',
       'bottom-mid': '┴',
-      'bottom-left': '╰',
-      'bottom-right': '╯',
+      'bottom-left': '└',
+      'bottom-right': '┘',
       left: '│',
       'left-mid': '├',
       mid: '─',
@@ -117,10 +117,10 @@ function createTable(headers, opts = {}) {
 function progressBar(label, total) {
   const bar = new cliProgress.SingleBar({
     format:
-      chalk.hex('#F7C948')('📖 {bar}') +
+      chalk.hex('#00FF41')('▸ {bar}') +
       chalk.white(' {percentage}% | ') +
-      chalk.cyan('{value}/{total}') +
-      chalk.gray(' | {stage}'),
+      chalk.green('{value}/{total}') +
+      chalk.hex('#003300')(' | {stage}'),
     barCompleteChar: '█',
     barIncompleteChar: '░',
     hideCursor: true,
@@ -135,18 +135,18 @@ function progressBar(label, total) {
 // ═══════════════════════════════════════
 
 const log = {
-  info: (...args) => console.log(chalk.cyan('ℹ️ '), ...args),
-  success: (...args) => console.log(chalk.green('✅'), ...args),
-  warn: (...args) => console.log(chalk.yellow('⚠️ '), ...args),
-  error: (...args) => console.log(chalk.red('❌'), ...args),
+  info: (...args) => console.log(chalk.hex('#00FF41')('▸'), ...args),
+  success: (...args) => console.log(chalk.hex('#39FF14')('✓'), ...args),
+  warn: (...args) => console.log(chalk.yellow('⚠'), ...args),
+  error: (...args) => console.log(chalk.red('✗'), ...args),
   step: (num, total, ...args) =>
-    console.log(chalk.hex('#F7C948')(`[${num}/${total}]`), ...args),
+    console.log(chalk.hex('#00FF41')(`[${num}/${total}]`), ...args),
   chapter: (title) => {
     console.log('');
-    console.log(chalk.hex('#F7C948').bold(`═══ 📖 ${title} ═══`));
+    console.log(chalk.hex('#00FF41').bold(`═══ ▸ ${title} ═══`));
     console.log('');
   },
-  divider: () => console.log(chalk.gray('─'.repeat(50))),
+  divider: () => console.log(chalk.hex('#003300')('─'.repeat(50))),
 };
 
 module.exports = {

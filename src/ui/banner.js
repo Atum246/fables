@@ -1,14 +1,17 @@
 /**
  * 🎨 Fables CLI Banner & Visual Identity
+ *
+ * HACKER GREEN THEME 💚🖥️
  */
 
 const chalk = require('chalk');
 const gradient = require('gradient-string');
 const figlet = require('figlet');
 
-// Fables brand gradient — warm storybook tones 📖✨
-const fablesGradient = gradient(['#FF6B35', '#F7C948', '#FF6B35']);
-const accentGradient = gradient(['#00D4AA', '#00B4D8']);
+// Fables brand gradient — hacker green matrix vibes 💚🖥️
+const fablesGradient = gradient(['#00FF41', '#0DFF00', '#39FF14', '#00FF41']);
+const accentGradient = gradient(['#00FF41', '#39FF14']);
+const dimGradient = gradient(['#004d00', '#006600']);
 
 function showBanner() {
   const logo = figlet.textSync('FABLES', {
@@ -20,27 +23,29 @@ function showBanner() {
   console.log('');
   console.log(fablesGradient(logo));
   console.log(
-    chalk.hex('#F7C948')('  📖 ') +
-    chalk.white.bold('Turn Flutter apps into legendary builds') +
-    chalk.hex('#F7C948')(' ✨')
+    chalk.hex('#00FF41')('  ▸ ') +
+    chalk.greenBright.bold('Turn Flutter apps into legendary builds') +
+    chalk.hex('#00FF41')(' ◂')
   );
   console.log(
-    chalk.gray('  ') +
-    chalk.hex('#00D4AA')('APK') +
-    chalk.gray(' · ') +
-    chalk.hex('#00B4D8')('AAB') +
-    chalk.gray(' · ') +
-    chalk.hex('#FF6B35')('iOS') +
-    chalk.gray(' — no Android Studio required 🚀')
+    chalk.hex('#003300')('  ── ') +
+    chalk.hex('#00FF41')('APK') +
+    chalk.hex('#003300')(' · ') +
+    chalk.hex('#39FF14')('AAB') +
+    chalk.hex('#003300')(' · ') +
+    chalk.hex('#0DFF00')('iOS') +
+    chalk.hex('#003300')(' ── ') +
+    chalk.hex('#008000')('no Android Studio required') +
+    chalk.hex('#00FF41')(' ⚡')
   );
   console.log('');
 }
 
 function showCompactBanner() {
   console.log(
-    chalk.hex('#F7C948')('📖 Fables') +
-    chalk.gray(' v0.1.0') +
-    chalk.hex('#00D4AA')(' ✨')
+    chalk.hex('#00FF41')('▸ Fables') +
+    chalk.hex('#003300')(' v0.1.0') +
+    chalk.hex('#39FF14')(' ✓')
   );
 }
 
